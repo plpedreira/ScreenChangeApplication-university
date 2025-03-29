@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ScreenChangeApplication</string>
+    <string name="home">Home</string>
+    <string name="duo_info">Duo Information</string>
+    <string name="imc_calc">IMC Calculator</string>
+    <string name="average_calc">Average Calculator</string>
+    <string name="rgm_pedro">RGM: 33534241</string>
+    <string name="rgm_tristan">RGM: 33398275</string>
+    <string name="name_pedro">Pedro Henrique de Souza e Silva</string>
+    <string name="name_tristan">Tristan Phelip Oliveira Ribas</string>
+    <string name="height">Height (m)</string>
+    <string name="weight">Weight (kg)</string>
+    <string name="calculate">Calculate</string>
+    <string name="grade1">Grade 1</string>
+    <string name="grade2">Grade 2</string>
+    <string name="grade3">Grade 3</string>
+</resources>
