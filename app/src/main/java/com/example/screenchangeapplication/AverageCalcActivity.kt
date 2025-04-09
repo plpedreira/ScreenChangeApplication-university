@@ -6,28 +6,27 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
-import kotlin.math.roundToLong
 
 class AverageCalcActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_average_calculator)
 
-        val grade1 = findViewById<TextInputEditText>(R.id.grade1)
-        val grade2 = findViewById<TextInputEditText>(R.id.grade2)
-        val grade3 = findViewById<TextInputEditText>(R.id.grade3)
+        val nota1 = findViewById<TextInputEditText>(R.id.grade1)
+        val nota2 = findViewById<TextInputEditText>(R.id.grade2)
+        val nota3 = findViewById<TextInputEditText>(R.id.grade3)
 
-        fun CaptureGradesAndCalcAverage(): Double? {
-            val grade1Value = grade1.text.toString()
-            val grade2Value = grade2.text.toString()
-            val grade3Value = grade3.text.toString()
+        fun captureGradesAndCalcAverage(): Double? {
+            val nota1Value = nota1.text.toString()
+            val nota2Value = nota2.text.toString()
+            val nota3Value = nota3.text.toString()
 
-            val grade1Double = grade1Value.toDoubleOrNull()
-            val grade2Double = grade2Value.toDoubleOrNull()
-            val grade3Double = grade3Value.toDoubleOrNull()
+            val nota1Double = nota1Value.toDoubleOrNull()
+            val nota2Double = nota2Value.toDoubleOrNull()
+            val nota3Double = nota3Value.toDoubleOrNull()
 
-            if (grade1Double != null && grade2Double != null && grade3Double != null) {
-                return (grade1Double + grade2Double + grade3Double) / 3.0
+            if (nota1Double != null && nota2Double != null && nota3Double != null) {
+                return (nota1Double + nota2Double + nota3Double) / 3.0
             }
 
             return null
@@ -39,15 +38,15 @@ class AverageCalcActivity: AppCompatActivity() {
             val averageView = findViewById<TextView>(R.id.averageView)
             val situationView = findViewById<TextView>(R.id.situationView)
 
-            val result = CaptureGradesAndCalcAverage()
+            val result = captureGradesAndCalcAverage()
 
             if (result != null) {
-                averageView.text = "Average: ${String.format("%.2f", result)}"
+                averageView.text = "Media: ${String.format("%.2f", result)}"
                 if (result >= 6.0) {
-                    situationView.text = "Situation: Approved!"
+                    situationView.text = "Situation: Aprovado Parabens!"
                 }
                 if (result < 6.0) {
-                    situationView.text = "Situation: Repproved!"
+                    situationView.text = "Situation: Reprovado ;-; !"
                 }
             }
 

@@ -13,41 +13,41 @@ class ImcCalcActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imc_calculator)
 
-        val weight = findViewById<TextInputEditText>(R.id.weight)
-        val height = findViewById<TextInputEditText>(R.id.height)
+        val peso = findViewById<TextInputEditText>(R.id.weight)
+        val altura = findViewById<TextInputEditText>(R.id.height)
 
         fun captureAndCalcIMC(): String? {
-            val weightValue = weight.text.toString()
-            val heightValue = height.text.toString()
+            val pesoValue = peso.text.toString()
+            val alturaValue = altura.text.toString()
 
-            val weightDouble = weightValue.toDoubleOrNull()
-            val heightDouble = heightValue.toDoubleOrNull()
+            val pesoDouble = pesoValue.toDoubleOrNull()
+            val alturaDouble = alturaValue.toDoubleOrNull()
 
-            if (weightDouble != null && heightDouble != null) {
-                val IMC = weightDouble / Math.pow(heightDouble, 2.0)
+            if (pesoDouble != null && alturaDouble != null) {
+                val imc = pesoDouble / Math.pow(alturaDouble, 2.0)
                 return when {
-                    IMC < 18.5 -> "Underweight"
-                    IMC in 18.5..24.9 -> "Normal weight"
-                    IMC in 25.0..29.9 -> "Overweight"
-                    IMC in 30.0..34.9 -> "Obesity grade 1"
-                    IMC in 35.0..39.9 -> "Obesity grade 2"
-                    else -> "Obesity grade 3"
+                    imc < 18.5 -> "Abaixo do peso"
+                    imc in 18.5..24.9 -> "Peso normal"
+                    imc in 25.0..29.9 -> "Acima do peso"
+                    imc in 30.0..34.9 -> "Obesidade nivel 1"
+                    imc in 35.0..39.9 -> "Obesidade nivel 2"
+                    else -> "Obesidade nivel 3"
                 }
             }
             return null
         }
 
-        val IMCCalcButton = findViewById<Button>(R.id.calculateIMC)
+        val imcCalcButton = findViewById<Button>(R.id.calculateIMC)
 
-        IMCCalcButton.setOnClickListener {
-            val IMCTextView = findViewById<TextView>(R.id.ViewIMC)
+        imcCalcButton.setOnClickListener {
+            val imcTextView = findViewById<TextView>(R.id.ViewIMC)
 
             val result = captureAndCalcIMC()
 
             if (result != null) {
-                IMCTextView.text = "Your IMC result is: $result"
+                imcTextView.text = "De acordo com o IMC voce se classifica como: $result"
             } else {
-                IMCTextView.text = "Please enter valid weight and height"
+                imcTextView.text = "coloque um peso e altura valido"
             }
         }
 
